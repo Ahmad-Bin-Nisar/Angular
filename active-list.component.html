@@ -1,0 +1,15 @@
+<h2>Active To-Do List</h2>
+<ul>
+  <li *ngFor="let item of activeItems">
+    <ng-container *ngIf="!item.editMode; else editTemplate">
+      {{ item.description }}
+      <button (click)="toggleEditMode(item)">Edit</button>
+      <button (click)="markAsCompleted(item)">Complete</button>
+    </ng-container>
+    <ng-template #editTemplate>
+      <input [(ngModel)]="item.editedDescription">
+      <button (click)="saveEditedDescription(item)">Save</button>
+      <button (click)="cancelEdit(item)">Cancel</button>
+    </ng-template>
+  </li>
+</ul>

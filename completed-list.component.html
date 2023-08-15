@@ -1,0 +1,7 @@
+<h2>Completed To-Do List</h2>
+<ul>
+  <li *ngFor="let item of completedItems">
+    {{ item.description }}
+    <button (click)="markAsActive(item)">Mark as Active</button>
+  </li>
+</ul>
